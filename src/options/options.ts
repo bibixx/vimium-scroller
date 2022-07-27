@@ -38,9 +38,12 @@ async function restoreOptions() {
     UP_KEY: "KeyK",
     DOWN_KEY: "KeyJ",
   };
+  type DefaultValues = typeof defaultValues;
 
-  const restored = await new Promise<typeof defaultValues>((resolve) => {
-    chrome.storage.sync.get(defaultValues, (values) => resolve(values));
+  const restored = await new Promise<DefaultValues>((resolve) => {
+    chrome.storage.sync.get(defaultValues, (values) =>
+      resolve(values as DefaultValues)
+    );
   });
 
   document.querySelector<HTMLInputElement>("#SPEED_SLOW")!.valueAsNumber =

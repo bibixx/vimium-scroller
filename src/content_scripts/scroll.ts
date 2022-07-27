@@ -134,7 +134,7 @@ function handleKeyUpModifierKey(e: KeyboardEvent) {
   }
 }
 
-function setupListener() {
+function setupListeners() {
   document.addEventListener("keydown", (e) => {
     const pressedKeys = getPressedKeys(e);
     const isRepeatedClick = e.repeat;
@@ -182,6 +182,16 @@ function setupListener() {
   });
 }
 
+const defaultValues = {
+  SPEED_SLOW: 200,
+  SPEED_NORMAL: 1000,
+  SPEED_FAST: 3000,
+  SUPER_SPEED_FAST: 20000,
+  UP_KEY: "KeyK",
+  DOWN_KEY: "KeyJ",
+};
+// TODO: Check get values
+type DefaultValues = typeof defaultValues;
 chrome.storage.sync.get(
   {
     SPEED_SLOW: 200,
@@ -191,7 +201,9 @@ chrome.storage.sync.get(
     UP_KEY: "KeyK",
     DOWN_KEY: "KeyJ",
   },
-  (restored) => {
+  (_restored) => {
+    const restored = _restored as DefaultValues;
+
     SPEED_SLOW = restored.SPEED_SLOW;
     SPEED_NORMAL = restored.SPEED_NORMAL;
     SPEED_FAST = restored.SPEED_FAST;
@@ -199,6 +211,6 @@ chrome.storage.sync.get(
     UP_KEY = restored.UP_KEY;
     DOWN_KEY = restored.DOWN_KEY;
 
-    setupListener();
+    setupListeners();
   }
 );

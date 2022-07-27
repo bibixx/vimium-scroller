@@ -11,5 +11,8 @@
     "prebuild": "rimraf build",
     "build": "esbuild ./src/**/*.ts --target=chrome100 --outdir=build --outbase=src --bundle",
     "dev": "yarn build --watch"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.193"
   }
 }
