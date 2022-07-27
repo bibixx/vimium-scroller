@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "outDir": "public",
+    "target": "es2020",
+    "strict": true,
+    "strictNullChecks": true,
+    "alwaysStrict": false,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["./src"]
+}

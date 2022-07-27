@@ -1,0 +1,11 @@
+.scroll-hover-prevent {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent !important;
+  /* Max possible */
+  z-index: 2147483647 !important;
+  pointer-events: all !important;
+}

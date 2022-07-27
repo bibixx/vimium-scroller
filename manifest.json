@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Vimium-like Smooth Scroller",
+  "version": "1.0.0",
+  "description": "Add smooth scroll",
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["build/content_scripts/scroll.js"],
+    "css": ["build/content_scripts/scroll.css"],
+    "run_at": "document_start",
+    "all_frames": true,
+    "match_about_blank": true
+  }],
+  "permissions": [
+    "storage"
+  ],
+  "options_page": "build/options/options.html"
+}

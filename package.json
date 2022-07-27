@@ -1,0 +1,15 @@
+{
+  "name": "scroller",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "esbuild": "^0.14.50",
+    "rimraf": "^3.0.2"
+  },
+  "scripts": {
+    "ln": "ln -s $(pwd)/src/options/options.html $(pwd)/build/options/options.html && ln -s $(pwd)/src/content_scripts/scroll.css $(pwd)/build/content_scripts/scroll.css",
+    "prebuild": "rimraf build",
+    "build": "esbuild ./src/**/*.ts --target=chrome100 --outdir=build --outbase=src --bundle",
+    "dev": "yarn build --watch"
+  }
+}
